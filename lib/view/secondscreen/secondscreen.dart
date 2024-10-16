@@ -7,8 +7,10 @@ class Secondscreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(floatingActionButton: FloatingActionButton(onPressed: () {
-      context.read<Homescreencontroller>().incriment();
-    }));
+    return Scaffold(
+        appBar: AppBar(),
+        floatingActionButton: FloatingActionButton(onPressed: () {
+          context.read<Homescreencontroller>().incriment();
+        }));
   }
 }
