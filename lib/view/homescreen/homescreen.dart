@@ -8,31 +8,25 @@ class Homescreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final prividobj = context.watch<Homescreencontroller>();
+    // final prividobj = context.watch<Homescreencontroller>();
 
     return Scaffold(
       body: Center(
-        child: Column(
+          child: Consumer<Homescreencontroller>(
+        builder: (context, counterProvider, child) => Column(
           children: [
             Text(
-              prividobj.count.toString(),
+              // prividobj.count.tostring,
+              counterProvider.count.toString(),
               style: TextStyle(fontSize: 130, color: Colors.red),
             ),
             Text(
-              prividobj.name,
-              style: TextStyle(fontSize: 130, color: Colors.red),
-            ),
-            Text(
-              context.watch<Homescreencontroller>().count.toString(),
-              style: TextStyle(fontSize: 130, color: Colors.red),
-            ),
-            Text(
-              context.watch<Homescreencontroller>().count.toString(),
+              counterProvider.name,
               style: TextStyle(fontSize: 130, color: Colors.red),
             ),
           ],
         ),
-      ),
+      )),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           // context.read<Homescreencontroller>().incriment();
